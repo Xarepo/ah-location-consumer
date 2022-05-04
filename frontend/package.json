@@ -1,0 +1,16 @@
+{
+  "name": "ol-webpack",
+  "version": "1.0.0",
+  "description": "Example using OpenLayers with Webpack",
+  "scripts": {
+    "build": "wp --config webpack.config.js"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
+    "webpack": "^5.58.1",
+    "webpack-nano": "^1.1.1"
+  },
+  "dependencies": {
+    "ol": "latest"
+  }
+}
