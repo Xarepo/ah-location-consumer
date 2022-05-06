@@ -2,7 +2,6 @@ package eu.arrowhead.application.skeleton.consumer.service;
 
 import org.springframework.stereotype.Service;
 import eu.arrowhead.application.skeleton.consumer.Domain.Coordinates;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import ai.aitia.arrowhead.application.library.ArrowheadService;
@@ -68,13 +67,7 @@ public class LocationService {
 		final Object payload = null;
 
 		try {
-			final Map<String, Double> coordinates = arrowheadService.consumeServiceHTTP(Map.class,
-					httpMethod, address, port, serviceUri, interfaceName, token, payload);
-			if (coordinates == null)
-				return null;
-			final double latitude = coordinates.get("latitude");
-			final double longitude = coordinates.get("longitude");
-			return new Coordinates(latitude, longitude);
+			return arrowheadService.consumeServiceHTTP(Coordinates.class, httpMethod, address, port, serviceUri, interfaceName, token, payload);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
